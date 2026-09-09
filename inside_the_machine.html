@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#050817">
   <meta name="description" content="An interactive journey through the patterns, probabilities, context, constraints, and tools behind an AI response.">
+  <link rel="icon" type="image/png" href="../../img/datainsight_logo_v01_400.png">
   <title>Inside the Machine — An AI's World</title>
   <style>
     :root {
@@ -103,15 +104,9 @@
     }
     .brand { display: flex; align-items: center; gap: 11px; min-width: 220px; }
     .brand-mark {
-      width: 34px; height: 34px; border-radius: 50%; position: relative;
-      border: 1px solid rgba(85,237,255,.65);
-      box-shadow: inset 0 0 18px rgba(85,237,255,.28), 0 0 22px rgba(85,237,255,.18);
+      width: 34px; height: 34px; border-radius: 50%; position: relative; object-fit: contain;
+      filter: drop-shadow(0 0 10px rgba(85,237,255,.28));
     }
-    .brand-mark::before, .brand-mark::after {
-      content: ""; position: absolute; inset: 7px; border: 1px solid var(--violet); border-radius: 50%;
-      transform: rotate(58deg) scaleY(.42);
-    }
-    .brand-mark::after { transform: rotate(-58deg) scaleY(.42); border-color: var(--pink); }
     .brand strong { font-size: .78rem; text-transform: uppercase; letter-spacing: .18em; }
     .brand small { display: block; color: var(--muted); margin-top: 2px; font-size: .67rem; letter-spacing: .08em; }
 
@@ -122,6 +117,8 @@
     .score { min-width: 112px; text-align: right; }
     .score b { font-size: 1.2rem; color: var(--gold); font-variant-numeric: tabular-nums; }
     .score span { display: block; color: var(--muted); font-size: .62rem; text-transform: uppercase; letter-spacing: .12em; }
+    .toolkit-link { color: var(--muted); text-decoration: none; font-size: .7rem; letter-spacing: .08em; text-transform: uppercase; white-space: nowrap; transition: color .2s; }
+    .toolkit-link:hover { color: var(--cyan); }
     .icon-btn {
       width: 42px; height: 42px; border-radius: 50%; cursor: pointer;
       border: 1px solid var(--line); background: rgba(8,14,34,.68); transition: .25s ease;
@@ -335,6 +332,7 @@
       .brand { min-width:0; }
       .brand div:last-child, .progress-meta { display:none; }
       .score { min-width:72px; }
+      .toolkit-link { display:none; }
       .scene-head, .hero-grid, .lesson-grid, .final-grid { grid-template-columns:1fr; }
       .ai-foundations { grid-template-columns:1fr; }
       .scene-head { gap:12px; }
@@ -372,12 +370,13 @@
 
   <div class="shell">
     <header class="hud" aria-label="Journey status">
-      <div class="brand"><div class="brand-mark" aria-hidden="true"></div><div><strong>Inside the Machine</strong><small>AI interpretation lab</small></div></div>
+      <div class="brand"><img class="brand-mark" src="../../img/datainsight_logo_v01_400.png" alt="DataInsight"><div><strong>Inside the Machine</strong><small>AI interpretation lab</small></div></div>
       <div class="progress-wrap">
         <div class="progress-meta"><span id="stageLabel">Threshold</span><span id="progressText">0 / 5</span></div>
         <div class="progress" role="progressbar" aria-label="Journey progress" aria-valuemin="0" aria-valuemax="5" aria-valuenow="0"><i id="progressFill"></i></div>
       </div>
       <div class="score" aria-live="polite"><b id="scoreValue">000</b><span>Understanding</span></div>
+      <a class="toolkit-link" href="../../index.html" aria-label="Return to DataInsight toolkit">Toolkit ↗</a>
       <button class="icon-btn" id="settingsBtn" aria-label="Open settings" title="Settings">⚙</button>
     </header>
 
